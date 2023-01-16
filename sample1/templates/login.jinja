@@ -1,0 +1,18 @@
+{% from "_formhelpers.jinja" import render_field %}
+{% extends "base.jinja" %}
+
+{% block content %}
+{# ここで、flasuメッセージを表示するようなスペースを確保する #}
+{% for message in get_flashed_messages() %}
+    {{ message }}
+{% endfor %}
+
+{# formを表示して変更 #}
+<h1>ユーザログイン画面</h1>
+<form action="" method ="POST">
+    {{form.csrf_token}} 
+    {{ render_field(form.email)}}
+    {{ render_field(form.password)}}
+    {{ form.submit()}}
+</form>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.jinja"%}
+{% block content%}
+
+    <div>
+        {%if current_user.is_authenticated %}
+            <p>ユーザログイン済み{{ current_user.username }}</p>
+        {% else %}
+            <p>ログインor登録をしてください</p>
+        {% endif %}
+    </div>
+{% endblock %}
